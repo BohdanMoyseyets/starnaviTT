@@ -1,0 +1,11 @@
+.list_i{
+    width: 150px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ffd1ab;
+    background: #ffeeba;
+    color: #893b3b;
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 14px;
+}

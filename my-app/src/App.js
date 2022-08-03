@@ -1,7 +1,9 @@
 import React from 'react';
 import './App.css';
+import List from './components/List/List';
 import MySelectContainer from './components/MySelect/MySelectContainer';
 import SquaresContainer from './components/Squares/SquaresContainer';
+import { connect } from 'react-redux';
 
 const App = (props) =>{
   return (
@@ -10,14 +12,15 @@ const App = (props) =>{
         <MySelectContainer store={props.store} />
         <SquaresContainer store={props.store}/>
       </div>
-      <div>
-        <h2>Hover Squares</h2>
-        <div>Empty</div>
-      </div>
-
-
+      <List squares={props.squares} />
     </div>
   );
 }
 
-export default App;
+let mapStateToProps = (state) =>{
+  return {
+      squares: state.squares.squares
+  }
+}
+
+export default connect(mapStateToProps, {})(App);

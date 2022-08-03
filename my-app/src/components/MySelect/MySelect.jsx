@@ -7,7 +7,6 @@ const MySelect = (props) => {
     const [btnDisable, setBtnDisable] = useState(true);
     const [fetching, setFetching] = useState(false);
     const [square, setSquare] = useState({mode: "", size: 0});
-    // console.log(props)
 
     useEffect(() => {
         async function fetchData() {
@@ -18,7 +17,6 @@ const MySelect = (props) => {
         fetchData().catch(console.error);
         setFetching(false);
 
-
     }, []);
 
     const onChange = (e) => {
@@ -28,16 +26,14 @@ const MySelect = (props) => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(square.name, square.field);
         props.modeCreator(square.name, square.field);
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <div className={style_s.triangle_down}></div>
-            <select disabled={fetching} onChange={onChange}>
-
-                <option value="" disabled selected hidden>Pick mode</option>
+            <select disabled={fetching} onChange={onChange} defaultValue="Pick mode">
+                <option value="Pick mode" disabled hidden>Pick mode</option>
                 {
                     option.map(o => <option key={o.field} data-size={o.field} value={o.name}>{o.name}</option>)
                 }
